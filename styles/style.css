@@ -1,0 +1,411 @@
+@font-face {
+  font-family: herculanum;
+  src: url(../fonts/HerculanumRegular.woff);
+}
+
+
+/**************/
+/* CSS REMEDY */
+/**************/
+
+/* naar een idee van Jen Simmons */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+
+body {
+  margin: 0;
+  max-width: max-content;
+
+
+}
+
+button:not([disabled]) {
+  cursor: pointer;
+}
+
+
+
+
+
+/*********************/
+/* CUSTOM PROPERTIES */
+/*********************/
+
+:root {
+  --color-twee: #784324;
+  --background-one: #D4A488;
+  --color-white: white;
+  /* ... */
+
+}
+
+
+
+
+
+/********************/
+/* ALGEMENE STYLING */
+/********************/
+
+body {
+  background-color: var(--background-one);
+}
+
+body.cursor {
+  cursor: url(/images/appacursor2.png) 64 64, auto;
+}
+
+h1 {
+  color: var(--color-white);
+  font-family: herculanum, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  text-shadow: 0em 0em 0.9em #784324;
+}
+
+/* wolken  */
+
+section:nth-of-type(1) {
+  display: flex;
+}
+
+section:nth-of-type(1) img:nth-of-type(1) {
+  position: relative;
+  width: 100%;
+  max-width: 15em;
+  height: auto;
+  transform: translateY(5em);
+  animation-name: wolk1;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes wolk1 {
+  from {
+    transform: translateX(40em);
+    animation-timing-function: linear;
+
+  }
+
+  to {
+    transform: translateX(-20em);
+
+  }
+}
+
+
+section:nth-of-type(1) img:nth-of-type(2) {
+  position: relative;
+  width: 100%;
+  max-width: 15em;
+  display: block;
+  height: auto;
+  animation-name: wolk2;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes wolk2 {
+  from {
+    transform: translateX(45em) translateY(-5em);
+    animation-timing-function: linear;
+  }
+
+  to {
+    transform: translateX(-20em) translateY(-5em);
+
+  }
+}
+
+/* ****** */
+
+/* kleine easter egg van vliegende aang */
+
+section:nth-of-type(1) img:nth-of-type(3) {
+  width: 5em;
+  height: 5em;
+
+  animation: aangglider;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes aangglider {
+  from {
+    transform: translateX(-120em) translateY(20em);
+  }
+
+  to {
+    transform: translateX(120em) translateY(-20em);
+  }
+}
+
+/* ****** */
+
+/* het middenstuk met de content */
+
+section:nth-of-type(2) .hiddenpics {
+  display: none;
+}
+
+section:nth-of-type(2) {
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  justify-content: space-evenly;
+}
+
+
+section:nth-of-type(2) ul {
+  display: none;
+  transition: 2s;
+}
+
+section:nth-of-type(2) ul:nth-of-type(2) {
+  display: flex;
+  transition: 2s;
+}
+
+section:nth-of-type(2) .show {
+  display: grid;
+  grid-template-columns: 1fr 12em 1fr;
+  grid-template-rows: 1fr 7em;
+  gap: 0.3em;
+  list-style: none;
+  overflow: hidden;
+  padding: 0;
+  align-items: center;
+}
+
+section:nth-of-type(2) .byeAppa {
+  display: none;
+}
+
+
+section:nth-of-type(2) .show li img {
+  width: 5em;
+  position: relative;
+  z-index: 6;
+}
+
+section:nth-of-type(2) ul ul {
+  list-style: none;
+  width: 12em;
+  height: 19em;
+  padding: 0;
+  justify-items: center;
+
+}
+
+section:nth-of-type(2) ul ul.showpics {
+  display: flex;
+  gap: 10em;
+  animation-name: slide;
+  animation: slide 30s ease infinite;
+  z-index: 2;
+}
+
+
+section:nth-of-type(2) ul ul:nth-of-type(2) {
+  display: flex;
+  gap: 10em;
+
+}
+
+
+section:nth-of-type(2) ul ul.showpics img {
+  width: 12em;
+  height: 19em;
+  float: left;
+}
+
+section:nth-of-type(2) ul ul.showpics img {
+  width: 12em;
+  height: 19em;
+  float: left;
+}
+
+.showpics {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.showpics li {
+  flex: 0 0 100%;
+}
+/* ****** */
+
+/* pijltjes */
+
+.arrowLeft,
+.arrowRight {
+  cursor: pointer;
+}
+
+.arrowLeft:hover,
+.arrowRight:hover {
+  scale: 1.5;
+  transition: 0.5s;
+  filter: drop-shadow(0 0.25em var(--color-twee));
+}
+
+
+
+section:nth-of-type(2) ul ul li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+section:nth-of-type(2) img:first-of-type {
+  max-width: 20em;
+  height: auto;
+
+}
+/* ****** */
+
+/* button en de button states */
+
+button {
+  background-color: var(--color-twee);
+  padding: 0.5em;
+  color: var(--color-white);
+  border: var(--color-twee) 0.1em solid;
+  border-radius: 2em;
+  font-family: herculanum, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 3em;
+  z-index: 3;
+}
+
+button:hover {
+  background-color: var(--color-white);
+  color: var(--color-twee);
+  transition: 0.5s;
+}
+
+button:active {
+  background-color: var(--color-twee);
+  color: var(--color-white);
+}
+
+button:focus {
+  border: var(--color-white) 0.1em solid;
+  border-radius: 2em;
+}
+
+/* ****** */
+
+/* stukje voor de artikelen */
+
+article {
+  padding: 3em;
+}
+
+article ul {
+  list-style: none;
+}
+
+article ul li.artikelShow {
+  display: block;
+  background-color: var(--color-twee);
+  padding: 2em;
+  border: var(--color-white) 0.5em solid;
+  border-radius: 2em;
+  animation-duration: 0.5s;
+  animation-name: artikel-intro;
+  animation-delay: 5s ease-in;
+  animation-timing-function: ease;
+}
+
+@keyframes artikel-intro {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+article ul li {
+  display: none;
+}
+
+
+article h1 {
+  font-family: herculanum, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 3em;
+  margin: 0.3em;
+  color: var(--color-white);
+}
+
+article p {
+  font-size: 1.2em;
+  color: var(--color-white);
+}
+/* ****** */
+
+/* de onderste wolken animatie */
+
+section:nth-of-type(3) {
+  display: flex;
+
+}
+
+section:nth-of-type(3) img:nth-of-type(1) {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 15em;
+  height: auto;
+  transform: translateY(10em);
+  animation-name: wolk3;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes wolk3 {
+  from {
+    transform: translateX(65em);
+    animation-timing-function: linear;
+  }
+
+  to {
+    transform: translateX(-40em);
+
+  }
+}
+
+section:nth-of-type(3) img:nth-of-type(2) {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 15em;
+  height: auto;
+  animation-name: wolk4;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+}
+
+
+@keyframes wolk4 {
+  from {
+    transform: translateX(65em) translateY(5em);
+    animation-timing-function: linear;
+  }
+
+  to {
+    transform: translateX(-40em) translateY(5em);
+
+  }
+}
+
+/* ... */
